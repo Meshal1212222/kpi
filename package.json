@@ -1,0 +1,19 @@
+{
+  "name": "goldenhost-dashboard",
+  "version": "1.0.0",
+  "description": "Golden Host Analytics Dashboard 2024-2025",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": ["analytics", "dashboard", "goldenhost"],
+  "author": "Golden Host",
+  "license": "MIT"
+}
