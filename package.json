@@ -1,0 +1,17 @@
+{
+  "name": "goldenhost-report",
+  "version": "1.0.0",
+  "description": "Golden Host Analytics Dashboard - تقرير قولدن هوست التحليلي",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "author": "Golden Host",
+  "license": "MIT"
+}
