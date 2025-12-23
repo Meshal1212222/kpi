@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قولدن هوست - العمولة vs الإعلانات vs التسويق vs صافي الربح vs الحجوزات</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Tajawal', sans-serif; 
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); 
+            color: #e2e8f0; 
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #22c55e, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .header p {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+        .chart-card {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .chart-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .chart-container {
+            position: relative;
+            height: 600px;
+            width: 100%;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .stat-box {
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .stat-box.green { border-color: #22c55e; }
+        .stat-box.red { border-color: #ef4444; }
+        .stat-box.orange { border-color: #f97316; }
+        .stat-box.cyan { border-color: #06b6d4; }
+        .stat-box.purple { border-color: #8b5cf6; }
+        .stat-label {
+            font-size: 0.85rem;
+            color: #94a3b8;
+            margin-bottom: 5px;
+        }
+        .stat-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        .stat-value.y2024 { color: #fca5a5; }
+        .stat-value.y2025 { color: #86efac; }
+        .legend-hint {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 12px;
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+        .legend-hint strong { color: #e2e8f0; }
+        .legend-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin: 5px 10px;
+        }
+        .legend-color {
+            width: 20px;
+            height: 4px;
+            border-radius: 2px;
+        }
+        .legend-color.dashed {
+            background: repeating-linear-gradient(90deg, currentColor 0, currentColor 5px, transparent 5px, transparent 10px);
+            height: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 قولدن هوست - التحليل المالي الشامل</h1>
+            <p>العمولة vs الإعلانات vs التسويق vs صافي الربح vs الحجوزات (2024 vs 2025)</p>
+        </div>
+        
+        <div class="chart-card">
+            <div class="chart-title">📈 المقارنة الشاملة الشهرية</div>
+            <div class="chart-container">
+                <canvas id="comprehensiveChart"></canvas>
+            </div>
+            
+            <div class="legend-hint">
+                <strong>دليل القراءة:</strong><br>
+                <div class="legend-item"><span class="legend-color" style="background:#22c55e;"></span> 2024: خط/عمود متصل</div>
+                <div class="legend-item"><span class="legend-color dashed" style="color:#22c55e;"></span> 2025: خط متقطع / عمود فاتح</div>
+                <br>
+                <strong>المحاور:</strong> اليسار = المبالغ (ريال) | اليمين = عدد الحجوزات
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-box green">
+                    <div class="stat-label">🟢 إجمالي العمولة</div>
+                    <div class="stat-value y2024">2024: 776,299</div>
+                    <div class="stat-value y2025">2025: 641,423</div>
+                </div>
+                <div class="stat-box red">
+                    <div class="stat-label">🔴 إجمالي الإعلانات</div>
+                    <div class="stat-value y2024">2024: 802,229</div>
+                    <div class="stat-value y2025">2025: 218,106</div>
+                </div>
+                <div class="stat-box orange">
+                    <div class="stat-label">🟠 إجمالي التسويق</div>
+                    <div class="stat-value y2024">2024: 569,910</div>
+                    <div class="stat-value y2025">2025: 107,090</div>
+                </div>
+                <div class="stat-box cyan">
+                    <div class="stat-label">🔵 صافي الربح</div>
+                    <div class="stat-value y2024">2024: -595,840</div>
+                    <div class="stat-value y2025">2025: +316,227</div>
+                </div>
+                <div class="stat-box purple">
+                    <div class="stat-label">🟣 إجمالي الحجوزات</div>
+                    <div class="stat-value y2024">2024: 13,336</div>
+                    <div class="stat-value y2025">2025: 11,214</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const months = ['يناير', 'فبراير', 'مارس', 'أبريل', 'مايو', 'يونيو', 'يوليو', 'أغسطس', 'سبتمبر', 'أكتوبر', 'نوفمبر', 'ديسمبر'];
+        
+        // البيانات الصحيحة من Excel
+        const commission2024 = [79043, 78002, 43105, 57653, 72094, 52623, 55429, 57995, 58100, 73135, 91940, 57180];
+        const commission2025 = [124539, 101926, 40407, 55430, 55771, 40405, 45057, 39315, 37760, 42550, 58263, null];
+        
+        const ads2024 = [31715, 80274, 100817, 95605, 71285, 57006, 51665, 45497, 70528, 70528, 54394, 72915];
+        const ads2025 = [86122, 23170, 0, 0, 17411, 4508, 14793, 16428, 14526, 22023, 19125, null];
+        
+        const marketing2024 = [0, 0, 51288, 657, 16475, 0, 0, 51000, 36427, 11825, 386487, 15751];
+        const marketing2025 = [13547, 20952, 0, 18651, 0, 0, 0, 5700, 4400, 20840, 23000, null];
+        
+        const netProfit2024 = [47328, -2272, -109000, -38609, -15666, -4383, 3764, -38502, -48855, -9218, -348941, -31486];
+        const netProfit2025 = [24870, 57804, 40407, 36779, 38360, 35897, 30264, 17187, 18834, -313, 16138, null];
+        
+        const bookings2024 = [857, 1044, 710, 961, 1233, 946, 1065, 1108, 1005, 1354, 1518, 1535];
+        const bookings2025 = [2074, 1862, 774, 1101, 1033, 738, 779, 644, 725, 700, 784, null];
+
+        new Chart(document.getElementById('comprehensiveChart'), {
+            type: 'bar',
+            data: {
+                labels: months,
+                datasets: [
+                    // العمولة
+                    { label: '🟢 العمولة 2024', data: commission2024, backgroundColor: 'rgba(34,197,94,0.8)', borderRadius: 6, yAxisID: 'y', order: 6 },
+                    { label: '🟢 العمولة 2025', data: commission2025, backgroundColor: 'rgba(34,197,94,0.4)', borderRadius: 6, yAxisID: 'y', order: 7 },
+                    // الإعلانات
+                    { label: '🔴 إعلانات 2024', data: ads2024, backgroundColor: 'rgba(239,68,68,0.8)', borderRadius: 6, yAxisID: 'y', order: 8 },
+                    { label: '🔴 إعلانات 2025', data: ads2025, backgroundColor: 'rgba(239,68,68,0.4)', borderRadius: 6, yAxisID: 'y', order: 9 },
+                    // التسويق
+                    { label: '🟠 تسويق 2024', data: marketing2024, backgroundColor: 'rgba(249,115,22,0.8)', borderRadius: 6, yAxisID: 'y', order: 10 },
+                    { label: '🟠 تسويق 2025', data: marketing2025, backgroundColor: 'rgba(249,115,22,0.4)', borderRadius: 6, yAxisID: 'y', order: 11 },
+                    // صافي الربح (خطوط)
+                    { label: '🔵 صافي الربح 2024', data: netProfit2024, type: 'line', borderColor: '#06b6d4', backgroundColor: 'rgba(6,182,212,0.1)', fill: true, borderWidth: 4, pointRadius: 6, pointHoverRadius: 10, tension: 0.4, yAxisID: 'y', order: 2 },
+                    { label: '🔵 صافي الربح 2025', data: netProfit2025, type: 'line', borderColor: '#06b6d4', backgroundColor: 'transparent', borderWidth: 4, pointRadius: 6, pointHoverRadius: 10, tension: 0.4, yAxisID: 'y', borderDash: [10, 5], order: 3 },
+                    // الحجوزات (خطوط)
+                    { label: '🟣 حجوزات 2024', data: bookings2024, type: 'line', borderColor: '#8b5cf6', backgroundColor: 'rgba(139,92,246,0.1)', fill: true, borderWidth: 5, pointRadius: 8, pointHoverRadius: 12, tension: 0.4, yAxisID: 'y1', order: 0 },
+                    { label: '🟣 حجوزات 2025', data: bookings2025, type: 'line', borderColor: '#a855f7', backgroundColor: 'transparent', borderWidth: 5, pointRadius: 8, pointHoverRadius: 12, tension: 0.4, yAxisID: 'y1', borderDash: [10, 5], order: 1 }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: { mode: 'index', intersect: false },
+                plugins: {
+                    legend: { 
+                        position: 'top', 
+                        labels: { 
+                            font: { size: 13, family: 'Tajawal', weight: '600' },
+                            padding: 15,
+                            usePointStyle: true
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(15, 23, 42, 0.95)',
+                        titleFont: { size: 16, family: 'Tajawal', weight: '700' },
+                        bodyFont: { size: 14, family: 'Tajawal' },
+                        padding: 15,
+                        cornerRadius: 10,
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (context.datasetIndex >= 8) {
+                                    return label + ': ' + (context.parsed.y ? context.parsed.y.toLocaleString() : 'N/A') + ' حجز';
+                                }
+                                return label + ': ' + (context.parsed.y ? context.parsed.y.toLocaleString() : 'N/A') + ' ريال';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        type: 'linear',
+                        position: 'left',
+                        title: { 
+                            display: true, 
+                            text: '💰 المبلغ (ريال)', 
+                            color: '#22c55e',
+                            font: { size: 16, family: 'Tajawal', weight: '700' }
+                        },
+                        grid: { color: 'rgba(255,255,255,0.1)' },
+                        ticks: { 
+                            color: '#94a3b8',
+                            font: { size: 12, family: 'Tajawal' },
+                            callback: function(value) { return value.toLocaleString(); }
+                        }
+                    },
+                    y1: {
+                        type: 'linear',
+                        position: 'right',
+                        beginAtZero: true,
+                        title: { 
+                            display: true, 
+                            text: '📋 عدد الحجوزات', 
+                            color: '#8b5cf6',
+                            font: { size: 16, family: 'Tajawal', weight: '700' }
+                        },
+                        grid: { drawOnChartArea: false },
+                        ticks: { 
+                            color: '#94a3b8',
+                            font: { size: 12, family: 'Tajawal' }
+                        }
+                    },
+                    x: {
+                        ticks: { 
+                            color: '#94a3b8',
+                            font: { size: 13, family: 'Tajawal', weight: '600' }
+                        },
+                        grid: { color: 'rgba(255,255,255,0.05)' }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
