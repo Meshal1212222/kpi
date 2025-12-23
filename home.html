@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قولدن هوست - لوحة التحكم</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%;
+        }
+        .card {
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .card.report { border-color: #22c55e; }
+        .card.report:hover { background: rgba(34, 197, 94, 0.1); }
+        .card.chart { border-color: #3b82f6; }
+        .card.chart:hover { background: rgba(59, 130, 246, 0.1); }
+        .card.analysis { border-color: #f59e0b; }
+        .card.analysis:hover { background: rgba(245, 158, 11, 0.1); }
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .card-desc {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        .stat-value.green { color: #22c55e; }
+        .stat-value.red { color: #ef4444; }
+        .stat-label {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        footer {
+            margin-top: 50px;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">🏠</div>
+    <h1>قولدن هوست</h1>
+    <p class="subtitle">لوحة التحليلات والتقارير 2024-2025</p>
+    
+    <div class="cards">
+        <a href="/report" class="card report">
+            <div class="card-icon">📊</div>
+            <div class="card-title">التقرير الشامل</div>
+            <div class="card-desc">تقرير من 5 صفحات يشمل جميع التحليلات المالية والتسويقية</div>
+        </a>
+        
+        <a href="/comprehensive" class="card chart">
+            <div class="card-icon">📈</div>
+            <div class="card-title">الرسم البياني الشامل</div>
+            <div class="card-desc">العمولة vs الإعلانات vs التسويق vs صافي الربح vs الحجوزات</div>
+        </a>
+        
+        <a href="/events" class="card analysis">
+            <div class="card-icon">📅</div>
+            <div class="card-title">تقويم الأحداث</div>
+            <div class="card-desc">ربط الحجوزات بالمناسبات: رمضان، الأعياد، المواسم</div>
+        </a>
+    </div>
+    
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-value green">+316K</div>
+            <div class="stat-label">صافي ربح 2025</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value red">-596K</div>
+            <div class="stat-label">خسارة 2024</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value green">↓76%</div>
+            <div class="stat-label">تخفيض المصروفات</div>
+        </div>
+    </div>
+    
+    <footer>
+        قولدن هوست © 2024-2025 | تم إنشاء التقرير بواسطة Claude AI
+    </footer>
+</body>
+</html>
