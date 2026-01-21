@@ -24,6 +24,11 @@ app.get('/events', (req, res) => {
     res.sendFile(path.join(__dirname, 'events-chart.html'));
 });
 
+// تقرير أفضل 10 مضيفين
+app.get('/top-hosts', (req, res) => {
+    res.sendFile(path.join(__dirname, 'top-hosts-report.html'));
+});
+
 app.listen(PORT, '0.0.0.0', () => {
     console.log('Server running on port ' + PORT);
 });
